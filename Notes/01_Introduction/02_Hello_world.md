@@ -349,7 +349,7 @@ My name is Jake
 The extra newline can be suppressed:
 
 ```python
-print('Hello', end=' ')
+print('Hello', end='')
 print('My name is', 'Jake')
 ```
 
