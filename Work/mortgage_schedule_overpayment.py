@@ -1,6 +1,6 @@
 # mortgage_schedule_overpayment.py
 #
-# Exercise 1.11
+# Exercise 1.11 and 1.17
 
 principal = 500000.0
 rate = 0.05
@@ -24,7 +24,7 @@ while principal > 0:
         principal = (principal - extra) * (1 + rate / 12) - payment
         total_paid = total_paid + payment + extra
     months = months + 1
-    print(f"{months:2d} {total_paid:.2f} {principal:.2f}")
+    print(f"{months:3d} {total_paid:10.2f} {principal:10.2f}")
 
 print()
 print(f"Total paid {total_paid:.2f}")
