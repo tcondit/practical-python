@@ -1,6 +1,8 @@
 # pcost.py
 #
-# Exercise 1.27 and 1.30
+# Exercise 1.27, 1.30, and 1.31
+
+# Modify the pcost.py program to catch the exception, print a warning message, and continue processing the rest of the file.
 
 
 def portfolio_cost(filename):
@@ -9,9 +11,12 @@ def portfolio_cost(filename):
         header = next(f)
         for line in f:
             line = line.split(",")
-            pcost = pcost + int(line[1]) * float(line[2])
+            try:
+                pcost = pcost + int(line[1]) * float(line[2])
+            except ValueError:
+                print(f"Couldn't parse {line}")
     return pcost
 
 
 pcost = portfolio_cost("Data/portfolio.csv")
-print(f"portfolio cost: {pcost}")
+print(f"Total cost: {pcost}")
