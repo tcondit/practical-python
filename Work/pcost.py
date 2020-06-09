@@ -1,20 +1,20 @@
 # pcost.py
 #
-# Exercise 1.27, 1.30, and 1.31
+# Exercise 1.27, 1.30, 1.31, and 1.32
 
-# Modify the pcost.py program to catch the exception, print a warning message, and continue processing the rest of the file.
+import csv
 
 
 def portfolio_cost(filename):
     pcost = 0
     with open(filename, "rt") as f:
-        header = next(f)
-        for line in f:
-            line = line.split(",")
+        rows = csv.reader(f)
+        _ = next(rows)  # remove header
+        for row in rows:
             try:
-                pcost = pcost + int(line[1]) * float(line[2])
+                pcost = pcost + int(row[1]) * float(row[2])
             except ValueError:
-                print(f"Couldn't parse {line}")
+                print(f"Couldn't parse {row}")
     return pcost
 
 
